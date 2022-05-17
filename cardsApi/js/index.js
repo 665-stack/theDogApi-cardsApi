@@ -26,12 +26,15 @@ const searchButton = () => {
     else if (inputValue <= 0) {
         error.innerText = "Please enter a positive number"
         input.value = '';
+        main.innerHTML = '';
     }
     else if (inputValue > 52) {
         error.innerText = "Please enter a number lower than 52";
         input.value = '';
+        main.innerHTML = '';
     }
     else {
+        main.innerHTML = '';
         fetch(`https://deckofcardsapi.com/api/deck/new/draw/?count=${inputValue}`)
             .then(res => res.json())
             .then(data => cardsDisplay(data.cards))
