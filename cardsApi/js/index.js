@@ -5,6 +5,12 @@
  3. error handling for string value
 
 */
+
+// Global variable's
+const main = document.getElementById('main')
+
+
+// get input value, error handle and load data
 const searchButton = () => {
     const input = document.getElementById('input-value');
     const error = document.getElementById('error');
@@ -15,6 +21,7 @@ const searchButton = () => {
         // alert('Please enter a number')
         error.innerText = 'Please enter a number';
         input.value = '';
+        main.innerHTML = '';
     }
     else if (inputValue <= 0) {
         error.innerText = "Please enter a positive number"
@@ -34,8 +41,25 @@ const searchButton = () => {
         input.value = '';
     }
 }
+// And here display load data
 const cardsDisplay = cards => {
     for (const card of cards) {
         console.log(card);
+        const div = document.createElement('div');
+        div.classList.add("col-lg-4");
+        div.classList.add("col-md-6");
+        div.classList.add("col-sm-12");
+        div.classList.add("mb-5");
+        div.innerHTML = `
+      <div class="card" style="width: 18rem;">
+         <img src="${card.image}" class="card-img-top w-50 mx-auto py-3" alt="...">
+            <div class="card-body text-center">
+                <h5 class="card-title">${card.suit}</h5>
+                <p class="card-text">${card.code}</p>
+               <a href="#" class="btn btn-secondary">See Details</a>
+            </div>
+      </div>
+        `;
+        main.appendChild(div);
     }
 }

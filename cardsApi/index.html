@@ -14,10 +14,15 @@
 </head>
 
 <body>
+    <!----------
+        Title 
+    --------------->
     <h1 class="text-center text-white bg-secondary py-3 ">Play with Cards API</h1>
 
-
     <div class="container">
+        <!-------------------------------
+            Search button and input box 
+        ------------------------------->
         <div class="d-flex">
             <input id="input-value" class="form-control me-2" type="search"
                 placeholder="Please enter a positive number lower than 52" aria-label="Search">
@@ -25,8 +30,18 @@
             <button onclick="searchButton()" class="btn btn-outline-secondary" type="submit">Search</button>
         </div>
 
+        <!--------------
+            Error massage
+        -------------------->
         <h6 id="error" class="text-danger text-center py-3">
             </h5>
+
+            <!----------------- 
+                Display data 
+            ------------------->
+            <div id="main" class="row">
+
+            </div>
     </div>
 
 
