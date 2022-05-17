@@ -11,8 +11,16 @@ const displayDog = doglist => {
         const div = document.createElement('div');
         div.className = "col-lg-4 ";
         div.innerHTML = `
-            <h4 class="mx-3 my-2 text-center"> ${dog.name}</h4>
-            <img class="w-50 rounded-pill mx-auto d-block" src="${dog.image.url}" alt="">
+            
+            
+            <h4 class="mx-3 my-2 text-center">Name: ${dog.name}</h4>
+             <p class="text-center">${dog.temperament}</p>
+             
+
+             <h4 class="text-center"> Weight : ${dog.weight.imperial}</h4>
+             <img width="350px" height="250px" class="rounded mx-auto d-block" src="${dog.image.url}" alt="">
+
+
         `;
         console.log(dog)
         main.appendChild(div)

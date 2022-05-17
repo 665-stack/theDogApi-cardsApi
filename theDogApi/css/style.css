@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(188, 188, 188);
+    background-color: rgb(253, 251, 251);
 }
 
 /* .nn {
@@ -9,3 +9,6 @@ body {
     border-radius: 5px;
     margin: 10px 0px 10px 4px;
 } */
+.col-lg-4 {
+    border: 1px solid black;
+}
