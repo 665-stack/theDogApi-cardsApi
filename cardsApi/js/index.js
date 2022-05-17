@@ -47,7 +47,7 @@ const searchButton = () => {
 // And here display load data
 const cardsDisplay = cards => {
     for (const card of cards) {
-        console.log(card);
+        // console.log(card);
         const div = document.createElement('div');
         div.classList.add("col-lg-4");
         div.classList.add("col-md-6");
@@ -59,10 +59,33 @@ const cardsDisplay = cards => {
             <div class="card-body text-center">
                 <h5 class="card-title">${card.suit}</h5>
                 <p class="card-text">${card.code}</p>
-               <a href="#" class="btn btn-secondary">See Details</a>
+               <button onclick="cardDetails('${card.code}')" class="btn btn-secondary">See Details</button>
             </div>
       </div>
         `;
         main.appendChild(div);
     }
+}
+const cardDetails = (code) => {
+    fetch(`https://deckofcardsapi.com/api/deck/new/draw/?count=52`)
+        .then(res => res.json())
+        .then(data => {
+            const allCards = data.cards;
+            const singleCard = allCards.find(card => card.code === code)
+            const div = document.createElement('div');
+            main.innerHTML = "";
+            div.innerHTML = `
+            <div class="card" style="width: 18rem;">
+              <img src="${singleCard.image}" class="card-img-top w-50 mx-auto py-3" alt="...">
+             <div class="card-body text-center">
+                      <h5 class="card-title"> ${singleCard.suit}</h5>
+                      <p class="card-text">Code: ${singleCard.code}</p>
+                      <p class="card-text">Value: ${singleCard.value}</p>
+
+              </div>
+           </div>
+            `;
+            main.appendChild(div)
+        })
+
 }
